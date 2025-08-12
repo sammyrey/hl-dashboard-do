@@ -347,3 +347,8 @@ def run_fine_tuning(n, symbol, start_date, end_date, rows):
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", "8080"))
     app.run_server(host="0.0.0.0", port=port, debug=False)
+    # Health check endpoint for DigitalOcean
+@server.get("/health")
+def health():
+    return "ok", 200
+
